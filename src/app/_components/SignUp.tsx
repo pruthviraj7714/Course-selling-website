@@ -19,6 +19,7 @@ import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 const SignUp = () => {
   const router = useRouter();
@@ -34,6 +35,7 @@ const SignUp = () => {
     password: z
       .string()
       .min(6, { message: "password must be at least of 6 characters" }),
+      gender : z.string()
   });
 
   const form = useForm<z.infer<typeof signUpSchema>>({
@@ -42,6 +44,7 @@ const SignUp = () => {
       name: "",
       email: "",
       password: "",
+      gender : ""
     },
   });
 
@@ -49,6 +52,7 @@ const SignUp = () => {
     name,
     email,
     password,
+    gender
   }: z.infer<typeof signUpSchema>) => {
     setIsLoading(true);
     try {
@@ -56,6 +60,7 @@ const SignUp = () => {
         name,
         email,
         password,
+        gender
       });
 
       toast({
@@ -124,6 +129,27 @@ const SignUp = () => {
                 </FormItem>
               )}
             />
+             <FormField
+          control={form.control}
+          name="gender"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Gender</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="What's Your Gender"  />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  <SelectItem value="male">Male</SelectItem>
+                  <SelectItem value="female">Female</SelectItem>
+                </SelectContent>
+              </Select>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
             <Button type="submit" className={`w-full ${isLoading ? "opacity-25"  : ""}`}>
               {isLoading ? (
                 <>

@@ -5,6 +5,9 @@ import { BackgroundBoxesDemo } from "../_components/Background-boxdemo";
 import { CarouselPlugin } from "../_components/Carousel";
 import { useEffect, useState } from "react";
 import CourseCard from "../_components/CourseCard";
+import CategoryCard from "../_components/CategoryCard";
+import { Code2, CodeIcon } from "lucide-react";
+import { CATEGORIES } from "@/constants/Icategories";
 
 interface CourseType {
   title: string;
@@ -37,8 +40,9 @@ export default function Courses() {
         <h1 className="my-4 text-white font-bold text-2xl">
           Courses to get you started
         </h1>
-        <div className="grid grid-cols-4 gap-5 h-[400px]">
-          {courses.map((course) => (
+        <div className="grid grid-cols-4 gap-4 mx-auto p-10">
+        {courses && courses.length > 0 ? (
+          courses.map((course) => (
             <CourseCard
               title={course.title}
               thumbnail={course.thumbnail}
@@ -49,8 +53,13 @@ export default function Courses() {
               category={course.category}
               id={course._id}
             />
-          ))}
-        </div>
+          ))
+        ) : (
+          <div className="font-bold text-5xl flex items-center justify-center">
+            No Courses found
+          </div>
+        )}
+      </div>
       </div>
       <div className="p-6">
         <h1 className="my-4 text-white font-bold text-2xl">Featured Courses</h1>
@@ -60,18 +69,9 @@ export default function Courses() {
       </div>
       <div className="p-4">
         <h1 className="my-4 text-white font-bold text-2xl">Categories</h1>
-        <div className="flex flex-col gap-y-10 justify-center items-end px-10 p-4 my-4">
-          {courses.map((course) => (
-            <div>
-              <h1>{course.title}</h1>
-              <h1>{course.description}</h1>
-              <img
-                src={course.thumbnail}
-                width={450}
-                height={230}
-                alt={"Course Thumbnail"}
-              />
-            </div>
+        <div className="grid grid-cols-2 p-7 gap-10 my-4">
+          {CATEGORIES.map((category) => (
+            <CategoryCard category={category.name} Clink={category.name} CIcon={category.icon} />
           ))}
         </div>
       </div>

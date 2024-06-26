@@ -4,7 +4,7 @@ import bcrypt from 'bcryptjs';
 import dbConnect from "@/lib/dbConnect";
 
 export async function POST(request: NextRequest) {
-  const { name, email, password } = await request.json();
+  const { name, email, password, gender } = await request.json();
 
   await dbConnect();
 
@@ -24,7 +24,8 @@ export async function POST(request: NextRequest) {
     const user = new User({
       name,
       email,
-      password: hashedPassword
+      password: hashedPassword,
+      gender
     });
 
     // Assign role based on email
@@ -32,7 +33,7 @@ export async function POST(request: NextRequest) {
       user.role = 'admin';
     }
 
-    user.learningPoints = 2000;
+    user.learningPoints = 12000;
 
     await user.save();
 

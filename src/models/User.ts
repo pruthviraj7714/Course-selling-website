@@ -5,12 +5,12 @@ export interface IUser extends Document {
   email: string;
   password: string;
   bio?: string;
-  gender : 'male' | 'female';
+  gender: 'male' | 'female';
   profileAvatar: string;
   role: 'student' | 'admin';
-  wishlist?: mongoose.Schema.Types.ObjectId;
+  wishlist: mongoose.Schema.Types.ObjectId[]; // Array of Course IDs
   learningPoints: number;
-  purchasedCourses: mongoose.Schema.Types.ObjectId[];
+  purchasedCourses: mongoose.Schema.Types.ObjectId[]; // Array of Course IDs
 }
 
 const UserSchema: Schema = new Schema({
@@ -30,29 +30,27 @@ const UserSchema: Schema = new Schema({
   bio: {
     type: String,
   },
-  gender : {
-    type : String,
-    enum : ["male", "female"]
-  },
-  profileAvatar: {
+  gender: {
     type: String,
+    enum: ["male", "female"],
+    required: true,
   },
   role: {
     type: String,
     enum: ['student', 'admin'],
     default: 'student',
   },
-  wishlist: {
+  wishlist: [{
     type: Schema.Types.ObjectId,
-    ref: 'Wishlist',
-  },
+    ref: 'Course', // Reference to the Course model
+  }],
   learningPoints: {
     type: Number,
     default: 0,
   },
   purchasedCourses: [{
     type: Schema.Types.ObjectId,
-    ref: 'Course',
+    ref: 'Course', // Reference to the Course model
   }],
 }, { timestamps: true });
 

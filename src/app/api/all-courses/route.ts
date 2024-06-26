@@ -1,12 +1,16 @@
 import dbConnect from "@/lib/dbConnect";
 import Course from "@/models/Course";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET() {
+export async function GET(req : NextRequest) {
   await dbConnect();
 
+  const category = req.nextUrl.searchParams.get("category") || "";
+
   try {
-    const courses = await Course.find({});
+    const query = category ? { category } : {};
+
+    const courses = await Course.find(query);
 
     return NextResponse.json(
       {
@@ -21,7 +25,7 @@ export async function GET() {
       {
         message: "Internal Server Error",
       },
-      { status: 400 }
+      { status: 500 }
     );
   }
 }

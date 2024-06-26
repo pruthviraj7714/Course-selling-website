@@ -18,7 +18,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto flex items-center justify-center px-8">
           <CarouselPlugin />
         </div>
-        <div className="grid grid-cols-3 gap-5 p-6 my-4 ">
+        <div className="grid grid-cols-3 gap-5 p-6 my-4 bg-black">
           <BackgroundGradientDemo />
           <BackgroundGradientDemo />
           <BackgroundGradientDemo />
