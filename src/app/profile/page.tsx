@@ -33,7 +33,7 @@ export default function () {
 
   return (
     <div className="">
-      <div className="h-24 flex bg-gray-300 items-center px-24 font-bold text-4xl font-serif">
+      <div className="h-24 flex bg-black text-white items-center px-24 font-bold text-4xl font-serif dark:bg-white dark:text-black">
         {userInfo.name}
       </div>
       <div className="flex justify-evenly items-center">

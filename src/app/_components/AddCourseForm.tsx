@@ -26,11 +26,12 @@ import Image from "next/image";
 import axios from "axios";
 import { useToast } from "@/components/ui/use-toast";
 import { CATEGORIES } from "@/constants/Icategories";
+import { useRouter } from "next/navigation";
 
 export default function () {
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
-
+  const router = useRouter();
   const form = useForm<z.infer<typeof CourseSchema>>({
     resolver: zodResolver(CourseSchema),
     defaultValues: {
@@ -48,6 +49,7 @@ export default function () {
     setIsLoading(true);
     try {
       await axios.post("/api/add-course", data);
+      router.push("/courses");
       toast({
         title: "Course is successfully added",
       });

@@ -5,6 +5,7 @@ import Footer from "./_components/Footer";
 import Appbar from "./_components/Appbar";
 import Providers from "./_components/Providers";
 import { Toaster } from "@/components/ui/toaster"
+import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,12 +22,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Providers>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
           <body className={inter.className}>
           <Appbar />
             {children}
             <Toaster />
           </body>
           <Footer />
+          </ThemeProvider>
       </Providers>
 
     </html>
