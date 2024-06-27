@@ -27,6 +27,7 @@ import axios from "axios";
 import { useToast } from "@/components/ui/use-toast";
 import { CATEGORIES } from "@/constants/Icategories";
 import { useRouter } from "next/navigation";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function () {
   const { toast } = useToast();
@@ -68,9 +69,12 @@ export default function () {
   return (
     <div className="flex flex-col justify-center items-center">
       <div className="p-4 text-4xl text-white">Add Course Here</div>
-      <div className="w-1/2 mx-auto p-6 border shadow-xl">
+      <div className="w-3/4 mx-auto p-6 border shadow-xl">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="grid gap-6 lg:grid-cols-2"
+          >
             <FormField
               control={form.control}
               name="title"
@@ -79,22 +83,6 @@ export default function () {
                   <FormLabel>Title</FormLabel>
                   <FormControl>
                     <Input placeholder="Enter name of the Course" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="description"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Description</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="Enter description of the course"
-                      {...field}
-                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -135,7 +123,7 @@ export default function () {
                     </FormControl>
                     <SelectContent>
                       {CATEGORIES.map((category) => (
-                        <SelectItem value={`${category.name}`}>
+                        <SelectItem key={category.name} value={category.name}>
                           {category.name}
                         </SelectItem>
                       ))}
@@ -193,21 +181,39 @@ export default function () {
                 </FormItem>
               )}
             />
-            <Button
-              type="submit"
-              className={`w-full bg-slate-600 hover:bg-slate-500  ${
-                isLoading ? "opacity-25" : ""
-              }`}
-            >
-              {isLoading ? (
-                <>
-                  <Image src="/spinner.svg" alt="/" width={24} height={24} />
-                  <span className="ml-1">Loading...</span>
-                </>
-              ) : (
-                "Submit"
+            <FormField
+              control={form.control}
+              name="description"
+              render={({ field }) => (
+                <FormItem className="lg:col-span-2">
+                  <FormLabel>Description</FormLabel>
+                  <FormControl>
+                    <Textarea
+                      placeholder="Enter description of the course"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
               )}
-            </Button>
+            />
+            <div className="lg:col-span-2">
+              <Button
+                type="submit"
+                className={`w-full bg-slate-600 hover:bg-slate-500 ${
+                  isLoading ? "opacity-25" : ""
+                }`}
+              >
+                {isLoading ? (
+                  <>
+                    <Image src="/spinner.svg" alt="/" width={24} height={24} />
+                    <span className="ml-1">Loading...</span>
+                  </>
+                ) : (
+                  "Submit"
+                )}
+              </Button>
+            </div>
           </form>
         </Form>
       </div>
