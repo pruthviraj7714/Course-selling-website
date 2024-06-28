@@ -15,9 +15,8 @@ import { useToast } from "@/components/ui/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -29,6 +28,12 @@ const profileSchema = z.object({
 
 export default function EditProfile() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [userInfo, setUserInfo] = useState({
+    name: "",
+    bio: "",
+    email: "",
+  });
+
   const { toast } = useToast();
   const router = useRouter();
 
@@ -48,8 +53,8 @@ export default function EditProfile() {
       toast({
         title: "Profile is successfully updated",
       });
-      
-      router.push('/profile')
+
+      router.push("/profile");
     } catch (error: any) {
       console.log(error);
       toast({
@@ -61,6 +66,19 @@ export default function EditProfile() {
       setIsLoading(false);
     }
   };
+
+  const getUserInfo = async () => {
+    try {
+      const res = await axios.get("api/user/info");
+      setUserInfo(res.data.info);
+    } catch (error: any) {
+      console.log(error.message);
+    }
+  };
+
+  useEffect(() => {
+    getUserInfo();
+  }, []);
 
   return (
     <div className="flex flex-col justify-center items-center h-screen bg-slate-900">

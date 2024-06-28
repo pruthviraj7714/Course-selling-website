@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import axios from "axios";
 import { Clock10, Star, UserRound, VideoIcon } from "lucide-react";
+import { useSession } from "next-auth/react";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function CoursePage({ params }: { params: any }) {
@@ -12,6 +14,8 @@ export default function CoursePage({ params }: { params: any }) {
   const [isInWishlist, setIsInWishlist] = useState<boolean>(false);
   const [isPurchased, setIsPurchased] = useState(false);
   const { toast } = useToast();
+
+  const session = useSession();
 
   const addCoursetoWishList = async () => {
     try {
@@ -73,7 +77,6 @@ export default function CoursePage({ params }: { params: any }) {
     }
   };
 
-
   useEffect(() => {
     const getInfo = async () => {
       if (params && params.courseId) {
@@ -106,16 +109,16 @@ export default function CoursePage({ params }: { params: any }) {
 
     const getPurchaseInfo = async () => {
       try {
-        const res = await axios.get("/api/purchase-course",{
-          params : {
-            courseId : params.courseId
-          }
-        })
+        const res = await axios.get("/api/purchase-course", {
+          params: {
+            courseId: params.courseId,
+          },
+        });
         setIsPurchased(res.data.isCoursePurchased);
       } catch (error) {
         console.log(error);
       }
-    }
+    };
 
     getWslinfo();
     getInfo();
@@ -126,7 +129,7 @@ export default function CoursePage({ params }: { params: any }) {
     <div className="bg-gradient-to-t from-slate-800 to-slate-950">
       <div className="w-full bg-gradient-to-br from-slate-400 to-slate-600 ">
         <div className="flex justify-center items-center p-10">
-          <div className="border-2 border-white bg-pink-300 min-w-4xl py-7">
+          <div className="border-2 border-white dark:bg-black bg-pink-300 min-w-4xl py-7">
             <div className="flex justify-evenly items-center gap-x-7 p-10">
               <div className="flex flex-col space-y-4">
                 <h1 className="text-5xl mr font-extrabold my-3">
@@ -166,20 +169,42 @@ export default function CoursePage({ params }: { params: any }) {
                 />
               </div>
             </div>
-            <div className="flex justify-evenly items-center">
-              {isInWishlist ? (
-                <Button variant={"destructive"} onClick={removeFromWishlist}>
-                  Remove from wishlist
-                </Button>
-              ) : (
-                <Button onClick={addCoursetoWishList}>Add to wishlist</Button>
-              )}
-              {isPurchased ? 
-                <Button variant={"outline"} className="bg-green-400">View Content</Button>
-               : 
-                <Button onClick={purchaseCoures} className="bg-transparent border border-black text-black text-md hover:bg-white"> Buy Course </Button>
-              }
-            </div>
+            {session.data?.user ? (
+              <div>
+                <div className="flex justify-evenly items-center">
+                  {isInWishlist ? (
+                    <Button
+                      variant={"destructive"}
+                      onClick={removeFromWishlist}
+                    >
+                      Remove from wishlist
+                    </Button>
+                  ) : (
+                    <Button onClick={addCoursetoWishList}>
+                      Add to wishlist
+                    </Button>
+                  )}
+                  {isPurchased ? (
+                    <Button variant={"outline"} className="bg-green-400">
+                      View Content
+                    </Button>
+                  ) : (
+                    <Button
+                      onClick={purchaseCoures}
+                    >
+                      {" "}
+                      Buy Course{" "}
+                    </Button>
+                  )}
+                </div>
+              </div>
+            ) : (
+              <div className="flex justify-center items-center">
+                <Link href="/signin">
+                  <Button>Login to Continue</Button>
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </div>
