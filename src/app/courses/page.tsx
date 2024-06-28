@@ -40,7 +40,7 @@ export default function Courses() {
         <h1 className="my-4 text-white font-bold text-2xl">
           Courses to get you started
         </h1>
-        <div className="grid grid-cols-4 gap-4 mx-auto p-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mx-auto p-10">
         {courses && courses.length > 0 ? (
           courses.map((course) => (
             <CourseCard

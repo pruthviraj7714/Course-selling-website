@@ -1,6 +1,8 @@
+import generateRandomTransactionId from "@/actions/generateRandomTransactionId";
 import authOptions from "@/lib/auth";
 import dbConnect from "@/lib/dbConnect";
 import Course from "@/models/Course";
+import PurchaseHistory from "@/models/PurchaseHistory";
 import User from "@/models/User";
 import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
@@ -80,7 +82,10 @@ export async function POST(req: NextRequest) {
     const user = await User.findById(session.user.id);
 
     if (!user) {
-      return NextResponse.json({ message: "User not found" }, { status: 404 });
+      return NextResponse.json(
+        { message: "User not found" },
+        { status: 404 }
+      );
     }
 
     if (user.learningPoints < course.price) {
@@ -90,19 +95,22 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const Icourse = await Course.findById(courseId);
-
-    if (!Icourse) {
-      return NextResponse.json({
-        message: "Course is not found",
-      });
-    }
-    Icourse.studentsEnrolledCount = Icourse.studentsEnrolledCount + 1;
-
-    await Icourse.save();
+    course.studentsEnrolledCount += 1;
+    await course.save();
 
     user.learningPoints -= course.price;
     user.purchasedCourses.push(courseId);
+
+    const purchase = await PurchaseHistory.create({
+      user: user._id,
+      course: courseId,
+      price: course.price,
+      transactionId: generateRandomTransactionId(),
+      status: "completed",
+    });
+
+    //@ts-ignore
+    user.purchaseHistory.push(purchase._id);
 
     await user.save();
 
@@ -110,7 +118,7 @@ export async function POST(req: NextRequest) {
       { message: "Course successfully purchased" },
       { status: 201 }
     );
-  } catch (error) {
+  } catch (error: any) {
     console.error(error);
     return NextResponse.json(
       { message: "Internal Server Error" },

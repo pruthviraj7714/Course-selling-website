@@ -33,7 +33,7 @@ export default function () {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-200 transition-colors duration-300">
+    <div className="min-h-screen bg-slate-100 dark:bg-gray-900 text-gray-900 dark:text-gray-200 transition-colors duration-300">
       <div className="h-24 flex bg-black dark:bg-gray-800 text-white dark:text-gray-200 items-center px-24 font-bold text-4xl font-serif shadow-lg">
         {userInfo.name}
       </div>
@@ -53,7 +53,7 @@ export default function () {
               </Button>
             </Link>
             <Link href={"/change-password"}>
-              <Button className="my-1 bg-sky-500 text-white font-sans rounded-lg px-4 py-2 text-md hover:bg-sky-400 shadow-md">
+              <Button className="my-1 bg-sky-500 font-sans text-gray-900 rounded-lg px-4 py-2 text-md hover:bg-sky-400 shadow-md">
                 Change Password
               </Button>
             </Link>

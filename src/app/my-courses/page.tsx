@@ -7,6 +7,15 @@ import CourseCard from "../_components/CourseCard";
 export default function () {
   const [courses, setCourses] = useState<any[]>([]);
 
+  const getPurchasedHistory = async () => {
+    try {
+      const res = await axios.get('/api/get-purchase-history');
+      console.log(res.data);
+    } catch (error : any) {
+      console.log(error.message);
+    }
+  }
+
   const getPurchasedCourses = async () => {
     try {
       const res = await axios.get("/api/get-purchased-courses");
@@ -19,11 +28,12 @@ export default function () {
 
   useEffect(() => {
     getPurchasedCourses();
+    getPurchasedHistory();
   }, []);
 
   return (
-    <div className="h-screen">
-      <div className="h-24 flex bg-gray-300 items-center px-24 font-bold text-4xl font-serif">
+    <div className="h-screen bg-white dark:bg-gradient-to-r dark:from-slate-700 dark:to-slate-900">
+      <div className="h-24 flex bg-black text-white  dark:bg-white dark:text-black items-center px-24 font-bold text-4xl font-serif">
         My Learning
       </div>
       <div className="container mx-auto p-10">
