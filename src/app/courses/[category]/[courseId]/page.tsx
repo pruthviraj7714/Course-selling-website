@@ -127,81 +127,79 @@ export default function CoursePage({ params }: { params: any }) {
 
   return (
     <div className="bg-gradient-to-t from-slate-800 to-slate-950">
-      <div className="w-full bg-gradient-to-br from-slate-400 to-slate-600 ">
-        <div className="flex justify-center items-center p-10">
-          <div className="border-2 border-white dark:bg-black bg-pink-300 min-w-4xl py-7">
-            <div className="flex justify-evenly items-center gap-x-7 p-10">
-              <div className="flex flex-col space-y-4">
-                <h1 className="text-5xl mr font-extrabold my-3">
-                  {courseData.title}
-                </h1>
-                <p className="text-lg">{courseData.description}</p>
-                <div>
-                  <div className="px-3 py-1 bg-yellow-300 w-24 font-serif">
-                    <p className="text-center">Bestseller</p>
-                  </div>
-                </div>
-                <div>
-                  <Star />
-                </div>
-                <div className="my-2 text-sm">
-                  Created by
-                  <span className="text-violet-600 underline ml-1">
-                    {courseData.instructor}
-                  </span>
-                </div>
-                <div className="flex gap-1">
-                  <UserRound /> {courseData.studentsEnrolledCount}+ students
-                  enrolled
-                </div>
-                <div className="flex gap-1">
-                  <VideoIcon /> {courseData.duration} hours on-demand video
-                </div>
-                <div className="flex gap-1">
-                  <Clock10 /> Created At {courseData.createdAt?.split("T")[0]}
+    <div className="w-full bg-gradient-to-br from-slate-400 to-slate-600 py-10">
+      <div className="flex justify-center items-center p-10">
+        <div className="border-2 border-white bg-white dark:bg-black rounded-lg shadow-lg max-w-5xl py-10 px-8">
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-10">
+            <div className="flex flex-col space-y-6 text-center lg:text-left">
+              <h1 className="text-5xl font-extrabold text-gray-900 dark:text-white my-3">
+                {courseData.title}
+              </h1>
+              <p className="text-lg text-gray-700 dark:text-gray-300">
+                {courseData.description}
+              </p>
+              <div className="flex justify-center lg:justify-start">
+                <div className="px-4 py-2 bg-yellow-300 rounded-md font-serif">
+                  <p className="text-center text-sm font-medium text-gray-900">Bestseller</p>
                 </div>
               </div>
-              <div>
-                <img
-                  className="border-2 border-white"
-                  src={courseData.thumbnail}
-                  alt={courseData.title}
-                />
+              <div className="flex justify-center lg:justify-start">
+                <Star />
+              </div>
+              <div className="my-2 text-sm text-gray-600 dark:text-gray-400">
+                Created by
+                <span className="text-violet-600 underline ml-1">
+                  {courseData.instructor}
+                </span>
+              </div>
+              <div className="flex gap-2 justify-center lg:justify-start items-center text-gray-600 dark:text-gray-400">
+                <UserRound /> {courseData.studentsEnrolledCount}+ students enrolled
+              </div>
+              <div className="flex gap-2 justify-center lg:justify-start items-center text-gray-600 dark:text-gray-400">
+                <VideoIcon /> {courseData.duration} hours on-demand video
+              </div>
+              <div className="flex gap-2 justify-center lg:justify-start items-center text-gray-600 dark:text-gray-400">
+                <Clock10 /> Created At {courseData.createdAt?.split("T")[0]}
               </div>
             </div>
+            <div className="flex justify-center items-center">
+              <img
+                className="border-2 border-white rounded-lg w-[350px] h-[230px] object-cover"
+                src={courseData.thumbnail}
+                alt={courseData.title}
+              />
+            </div>
+          </div>
+          <div className="flex justify-center items-center mt-10">
             {session.data?.user ? (
-              <div>
-                <div className="flex justify-evenly items-center">
-                  {isInWishlist ? (
-                    <Button
-                      variant={"destructive"}
-                      onClick={removeFromWishlist}
-                    >
-                      Remove from wishlist
-                    </Button>
-                  ) : (
-                    <Button onClick={addCoursetoWishList}>
-                      Add to wishlist
-                    </Button>
-                  )}
-                  {isPurchased ? (
-                    <Button variant={"outline"} className="bg-green-400">
-                      View Content
-                    </Button>
-                  ) : (
-                    <Button
-                      onClick={purchaseCoures}
-                    >
-                      {" "}
-                      Buy Course{" "}
-                    </Button>
-                  )}
-                </div>
+              <div className="flex flex-col lg:flex-row justify-between items-center w-full gap-6">
+                {isInWishlist ? (
+                  <Button
+                    variant={"destructive"}
+                    onClick={removeFromWishlist}
+                    className="w-full lg:w-auto dark:bg-red-600 dark:hover:bg-red-500"
+                  >
+                    Remove from Wishlist
+                  </Button>
+                ) : (
+                  <Button onClick={addCoursetoWishList} className="w-full lg:w-auto">
+                    Add to Wishlist
+                  </Button>
+                )}
+                {isPurchased ? (
+                  <Button variant={"outline"} className="bg-green-600 hover:bg-green-500 w-full lg:w-auto">
+                    View Content
+                  </Button>
+                ) : (
+                  <Button onClick={purchaseCoures} className="w-full lg:w-auto">
+                    Buy Course
+                  </Button>
+                )}
               </div>
             ) : (
-              <div className="flex justify-center items-center">
+              <div className="flex justify-center items-center w-full">
                 <Link href="/signin">
-                  <Button>Login to Continue</Button>
+                  <Button className="w-full lg:w-auto">Login to Continue</Button>
                 </Link>
               </div>
             )}
@@ -209,5 +207,8 @@ export default function CoursePage({ params }: { params: any }) {
         </div>
       </div>
     </div>
+  </div>
+  
+  
   );
 }

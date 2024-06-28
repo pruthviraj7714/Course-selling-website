@@ -37,7 +37,7 @@ const CourseCard = ({
         <div className="flex justify-between items-center">
           <span className="font-bold text-lg text-green-600">₹{price}</span>
           <button className="bg-blue-500 text-white px-3 py-1 rounded-md shadow-sm transition-transform transform hover:scale-105">
-            Enroll Now
+            View
           </button>
         </div>
       </div>
