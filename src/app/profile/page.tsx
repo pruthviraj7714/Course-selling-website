@@ -115,9 +115,20 @@ export default function () {
               ))}
             </div>
           ) : (
-            <div className="flex justify-center items-center font-bold text-2xl text-gray-900 dark:text-gray-400">
-              You haven't purchased any course yet
-            </div>
+            <div className="text-center">
+            <h2 className="text-2xl font-bold mb-4 text-gray-700 dark:text-gray-300">
+              You haven't purchased any course yet.
+            </h2>
+            <p className="text-gray-500 dark:text-gray-400 mb-6">
+              Start exploring and purchasing your favorite courses!
+            </p>
+            <Link
+              href={"/courses"}
+              className="px-4 py-2 font-semibold bg-blue-500 text-white rounded-lg shadow-lg hover:bg-blue-600 dark:bg-blue-700 dark:hover:bg-blue-800"
+            >
+              Explore Courses
+            </Link>
+          </div>
           )}
         </div>
       </div>

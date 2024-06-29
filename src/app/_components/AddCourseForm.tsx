@@ -68,8 +68,8 @@ export default function () {
 
   return (
     <div className="flex flex-col justify-center items-center my-4">
-      <div className="p-4 text-4xl text-white">Add Course Here</div>
-      <div className="w-3/4 mx-auto p-6 border shadow-xl border-black dark:border-white">
+      <div className="p-4 text-4xl text-white my-3">Add Course Here</div>
+      <div className="w-3/4 mx-auto p-6 border-4 rounded-xl shadow-xl border-black dark:border-white">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}

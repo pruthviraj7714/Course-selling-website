@@ -2,6 +2,7 @@
 
 import axios from "axios";
 import { ShoppingCartIcon } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function () {
@@ -23,29 +24,28 @@ export default function () {
 
   return (
     <div className="h-screen bg-primary-foreground">
-      <div className="h-24 flex bg-primary items-center px-24 font-bold text-4xl shadow-lg">
-        Purchase History
-      </div>
-      <div className="bg-gray-50 flex items-center justify-center py-10 dark:bg-slate-800">
-        <div className="container mx-auto p-6 bg-white dark:bg-slate-700 shadow-lg rounded-lg">
+    <div className="h-24 flex bg-primary items-center px-24 font-bold text-4xl shadow-lg">
+      Purchase History
+    </div>
+    <div className="bg-gray-50 flex items-center justify-center py-10 dark:bg-slate-800">
+      <div className="container mx-auto p-6 bg-white dark:bg-slate-700 shadow-lg rounded-lg">
+        {pHistory.length === 0 ? (
+          <div className="text-center">
+            <h2 className="text-2xl font-bold mb-4 text-gray-700 dark:text-gray-300">No Purchases Yet</h2>
+            <p className="text-gray-500 dark:text-gray-400 mb-6">You haven't purchased any courses yet.</p>
+            <Link href={'/courses'} className="px-4 py-2 font-semibold bg-blue-500 text-white rounded-lg shadow-lg hover:bg-blue-600 dark:bg-blue-700 dark:hover:bg-blue-800">
+              Explore Courses
+            </Link>
+          </div>
+        ) : (
           <table className="min-w-full table-auto">
             <thead>
               <tr className="bg-gray-200 dark:bg-slate-600">
-                <th className="py-3 px-4 text-left font-semibold text-sm text-gray-700 dark:text-gray-300">
-                  Course
-                </th>
-                <th className="py-3 px-4 text-left font-semibold text-sm text-gray-700 dark:text-gray-300">
-                  Details
-                </th>
-                <th className="py-3 px-4 text-left font-semibold text-sm text-gray-700 dark:text-gray-300">
-                  Transaction Id
-                </th>
-                <th className="py-3 px-4 text-left font-semibold text-sm text-gray-700 dark:text-gray-300">
-                  Price
-                </th>
-                <th className="py-3 px-4 text-left font-semibold text-sm text-gray-700 dark:text-gray-300">
-                  Status
-                </th>
+                <th className="py-3 px-4 text-left font-semibold text-sm text-gray-700 dark:text-gray-300">Course</th>
+                <th className="py-3 px-4 text-left font-semibold text-sm text-gray-700 dark:text-gray-300">Details</th>
+                <th className="py-3 px-4 text-left font-semibold text-sm text-gray-700 dark:text-gray-300">Transaction Id</th>
+                <th className="py-3 px-4 text-left font-semibold text-sm text-gray-700 dark:text-gray-300">Price</th>
+                <th className="py-3 px-4 text-left font-semibold text-sm text-gray-700 dark:text-gray-300">Status</th>
               </tr>
             </thead>
             <tbody>
@@ -64,9 +64,7 @@ export default function () {
                     <span>{course.purchaseDate}</span>
                   </td>
                   <td className="py-3 px-4">
-                    <span className="ml-2 text-xs text-gray-500 dark:text-gray-400 hidden lg:inline">
-                      {course.transactionId}
-                    </span>
+                    <span className="ml-2 text-xs text-gray-500 dark:text-gray-400 hidden lg:inline">{course.transactionId}</span>
                   </td>
                   <td className="py-3 px-4">{course.price}</td>
                   <td className="py-3 px-4">
@@ -84,8 +82,10 @@ export default function () {
               ))}
             </tbody>
           </table>
-        </div>
+        )}
       </div>
     </div>
+  </div>
+  
   );
 }

@@ -10,7 +10,7 @@ export default function Appbar() {
   const session = useSession();
 
   return (
-    <div className="bg-gradient-to-l from-slate-900 to-slate-950 dark:bg-white flex justify-between items-center p-4 border-b-2 border-white">
+    <div className="bg-gradient-to-l from-slate-900 to-slate-950 dark:bg-white flex justify-between items-center p-4 border-b border-white">
       <Link href="/" className="text-white font-bold text-xl">
         Logo
       </Link>

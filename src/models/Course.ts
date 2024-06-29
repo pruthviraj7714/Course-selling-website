@@ -10,8 +10,8 @@ export interface ICourse extends Document {
   studentsEnrolledCount: number;
   thumbnail?: string;
   rating?: number;
-  wishlistedUsers: mongoose.Types.ObjectId[]; // Array of User IDs who have wishlisted the course
-  purchasedUsers: mongoose.Types.ObjectId[]; // Array of User IDs who have purchased the course
+  wishlistedUsers: mongoose.Types.ObjectId[]; 
+  purchasedUsers: mongoose.Types.ObjectId[]; 
   createdAt: Date;
   updatedAt: Date;
 }
@@ -52,11 +52,11 @@ const CourseSchema: Schema = new Schema({
   },
   wishlistedUsers: [{
     type: Schema.Types.ObjectId,
-    ref: 'User', // Replace 'User' with your actual user model name if different
+    ref: 'User', 
   }],
   purchasedUsers: [{
     type: Schema.Types.ObjectId,
-    ref: 'User', // Replace 'User' with your actual user model name if different
+    ref: 'User', 
   }],
 }, { timestamps: true });
 
