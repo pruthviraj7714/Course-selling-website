@@ -12,7 +12,7 @@ import {
   SiJenkins,
 } from "react-icons/si";
 import { GrProjects } from "react-icons/gr";
-
+import { BsRobot } from "react-icons/bs";
 export const CATEGORIES = [
   {
     name: "Web Development",
@@ -47,8 +47,8 @@ export const CATEGORIES = [
     icon: SiDigitalocean,
   },
   {
-    name: "UI/UX Design",
-    icon: SiUikit,
+    name: "Machine Learning",
+    icon: BsRobot,
   },
   {
     name: "Game Development",

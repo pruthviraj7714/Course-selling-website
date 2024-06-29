@@ -7,14 +7,6 @@ import CourseCard from "../_components/CourseCard";
 export default function () {
   const [courses, setCourses] = useState<any[]>([]);
 
-  const getPurchasedHistory = async () => {
-    try {
-      const res = await axios.get('/api/get-purchase-history');
-      console.log(res.data);
-    } catch (error : any) {
-      console.log(error.message);
-    }
-  }
 
   const getPurchasedCourses = async () => {
     try {
@@ -28,7 +20,6 @@ export default function () {
 
   useEffect(() => {
     getPurchasedCourses();
-    getPurchasedHistory();
   }, []);
 
   return (

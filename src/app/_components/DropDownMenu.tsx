@@ -84,7 +84,7 @@ export function AppMenu() {
               <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
             </DropdownMenuItem>
           </Link>
-          <Link href={"/"}>
+          <Link href={"/purchase-history"}>
             <DropdownMenuItem>
               <FaMoneyBill className="mr-2 h-4 w-4" />
               <span>Purchase history</span>
@@ -125,10 +125,12 @@ export function AppMenu() {
           </DropdownMenuSub>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
-          <Github className="mr-2 h-4 w-4" />
-          <span>GitHub</span>
-        </DropdownMenuItem>
+        <Link href={'https://github.com/pruthviraj7714'}>
+          <DropdownMenuItem>
+            <Github className="mr-2 h-4 w-4" />
+            <span>GitHub</span>
+          </DropdownMenuItem>
+        </Link>
         <DropdownMenuItem>
           <LifeBuoy className="mr-2 h-4 w-4" />
           <span>Support</span>
