@@ -3,6 +3,7 @@ import mongoose, { Document, Schema, Model } from 'mongoose';
 export interface IPurchaseHistory extends Document {
     user : mongoose.Schema.Types.ObjectId,
     course : mongoose.Schema.Types.ObjectId,
+    courseName : string,
     purchaseDate : Date,
     price : Number,
     transactionId : string,
@@ -18,6 +19,10 @@ const PurchaseHistorySchema: Schema = new Schema({
   course: {
     type: Schema.Types.ObjectId,
     ref: "Course",
+    required: true
+  },
+  courseName : {
+    type : String,
     required: true
   },
   purchaseDate: {

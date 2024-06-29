@@ -39,7 +39,7 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({
       isCoursePurchased,
     });
-  } catch (error : any) {
+  } catch (error: any) {
     console.error(error);
     return NextResponse.json(
       { message: "Internal Server Error" },
@@ -82,10 +82,7 @@ export async function POST(req: NextRequest) {
     const user = await User.findById(session.user.id);
 
     if (!user) {
-      return NextResponse.json(
-        { message: "User not found" },
-        { status: 404 }
-      );
+      return NextResponse.json({ message: "User not found" }, { status: 404 });
     }
 
     if (user.learningPoints < course.price) {
@@ -97,21 +94,24 @@ export async function POST(req: NextRequest) {
 
     course.studentsEnrolledCount += 1;
     await course.save();
-
+    
     user.learningPoints -= course.price;
     user.purchasedCourses.push(courseId);
-
+    
     const purchase = await PurchaseHistory.create({
       user: user._id,
       course: courseId,
+      courseName: course.title,
       price: course.price,
       transactionId: generateRandomTransactionId(),
       status: "completed",
     });
 
+    console.log(purchase);
+    
     //@ts-ignore
     user.purchaseHistory.push(purchase._id);
-
+    
     await user.save();
 
     return NextResponse.json(
