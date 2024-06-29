@@ -67,9 +67,9 @@ export default function () {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center my-4">
       <div className="p-4 text-4xl text-white">Add Course Here</div>
-      <div className="w-3/4 mx-auto p-6 border shadow-xl">
+      <div className="w-3/4 mx-auto p-6 border shadow-xl border-black dark:border-white">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
@@ -200,7 +200,7 @@ export default function () {
             <div className="lg:col-span-2">
               <Button
                 type="submit"
-                className={`w-full bg-slate-600 hover:bg-slate-500 ${
+                className={`${
                   isLoading ? "opacity-25" : ""
                 }`}
               >

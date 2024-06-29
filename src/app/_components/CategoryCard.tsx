@@ -6,7 +6,7 @@ const CategoryCard = ({category, Clink, CIcon} : {category : string, Clink : str
     let randomColor = colors[Math.floor(Math.random()*colors.length)];
 
   return (
-    <Link href={`courses/${Clink}`} className={`w-70 h-20 flex justify-center items-center gap-3 bg-white font-serif text-xl`}>
+    <Link href={`courses/${Clink}`} className={`w-70 h-20 flex justify-center items-center gap-3 bg-primary font-serif text-xl`}>
         <span className="mr-2">
           {category}
         </span>

@@ -33,8 +33,8 @@ export default function () {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-100 dark:bg-gray-900 text-gray-900 dark:text-gray-200 transition-colors duration-300">
-      <div className="h-24 flex bg-black dark:bg-gray-800 text-white dark:text-gray-200 items-center px-24 font-bold text-4xl font-serif shadow-lg">
+    <div className="min-h-screen bg-primary-foreground duration-300">
+      <div className="h-24 flex bg-primary items-center px-24 font-bold text-4xl font-serif shadow-lg">
         {userInfo.name}
       </div>
       <div className="flex flex-col lg:flex-row justify-evenly items-center py-10">

@@ -22,8 +22,8 @@ export default function () {
   }, []);
 
   return (
-    <div className="h-screen bg-gradient-to-r from-teal-100 to-teal-300 dark:bg-gradient-to-r dark:from-slate-700 dark:to-slate-900">
-      <div className="h-24 flex bg-teal-700 text-white dark:bg-white dark:text-black items-center px-24 font-bold text-4xl shadow-lg">
+    <div className="h-screen bg-primary-foreground">
+      <div className="h-24 flex bg-primary items-center px-24 font-bold text-4xl shadow-lg">
         Purchase History
       </div>
       <div className="bg-gray-50 flex items-center justify-center py-10 dark:bg-slate-800">
@@ -64,9 +64,9 @@ export default function () {
                     <span>{course.purchaseDate}</span>
                   </td>
                   <td className="py-3 px-4">
-                      <span className="ml-2 text-xs text-gray-500 dark:text-gray-400 hidden lg:inline">
-                        {course.transactionId}
-                      </span>
+                    <span className="ml-2 text-xs text-gray-500 dark:text-gray-400 hidden lg:inline">
+                      {course.transactionId}
+                    </span>
                   </td>
                   <td className="py-3 px-4">{course.price}</td>
                   <td className="py-3 px-4">

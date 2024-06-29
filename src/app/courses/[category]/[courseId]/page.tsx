@@ -126,10 +126,10 @@ export default function CoursePage({ params }: { params: any }) {
   }, [params, isInWishlist, isPurchased]);
 
   return (
-    <div className="bg-gradient-to-t from-slate-800 to-slate-950">
-    <div className="w-full bg-gradient-to-br from-slate-400 to-slate-600 py-10">
+    <div className="bg-primary">
+    <div className="w-full py-10">
       <div className="flex justify-center items-center p-10">
-        <div className="border-2 border-white bg-white dark:bg-black rounded-lg shadow-lg max-w-5xl py-10 px-8">
+        <div className="border-2 border-black bg-white dark:bg-black rounded-lg shadow-lg max-w-5xl py-10 px-8">
           <div className="flex flex-col lg:flex-row justify-between items-center gap-10">
             <div className="flex flex-col space-y-6 text-center lg:text-left">
               <h1 className="text-5xl font-extrabold text-gray-900 dark:text-white my-3">

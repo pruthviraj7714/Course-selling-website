@@ -23,8 +23,8 @@ export default function () {
   }, []);
 
   return (
-    <div className="h-screen bg-white dark:bg-gradient-to-r dark:from-slate-700 dark:to-slate-900">
-      <div className="h-24 flex bg-black text-white  dark:bg-white dark:text-black items-center px-24 font-bold text-4xl font-serif">
+    <div className="h-screen bg-primary-foreground">
+      <div className="h-24 flex bg-primary items-center px-24 font-bold text-4xl font-serif">
         My Learning
       </div>
       <div className="container mx-auto p-10">

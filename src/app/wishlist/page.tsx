@@ -26,8 +26,8 @@ const WishlistPage = async () => {
   }, []);
 
   return (
-    <div className="min-h-screen">
-     <div className="h-24 flex bg-gray-300 items-center px-24 font-bold text-4xl font-serif">
+    <div className="min-h-screen bg-primary-foreground">
+     <div className="h-24 flex bg-primary items-center px-24 font-bold text-4xl font-serif">
         My Wishlist
       </div>
       <div className="container mx-auto p-10">
