@@ -67,7 +67,7 @@ export function CarouselPlugin() {
                       src={course.thumbnail}
                       alt={course.title}
                     />
-                    <div className="flex flex-col gap-2 p-4 rounded-lg shadow-md bg-white dark:bg-gray-800">
+                    <div className="flex flex-col gap-2 p-4 rounded-lg shadow-md bg-white dark:bg-transparent">
                       <h1 className="text-xl font-semibold text-gray-800 dark:text-white">
                         {course.title}
                       </h1>
