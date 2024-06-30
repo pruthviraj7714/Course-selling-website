@@ -3,7 +3,7 @@
 import { HoverEffect } from "@/components/Card-hover-effect";
 import { skills } from "@/constants/Iskills";
 import { InfiniteMovingCards } from "@/components/infinite-moving-cards";
-import { Testimonials } from "@/constants/Testimonials";import { AccordionComponent } from "../components/AccordionDemo";
+import { Testimonials } from "@/constants/Testimonials";import { AccordionComponent } from "../components/AccordionComponent";
 import { LampComponent } from "@/components/ui/lamp";
 
 

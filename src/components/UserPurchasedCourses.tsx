@@ -42,7 +42,7 @@ export default function UserPurchasedCourses() {
       ) : (
         <div className="text-center">
           <h2 className="text-2xl font-bold mb-4 text-gray-700 dark:text-gray-300">
-            You haven't purchased any course yet.
+            You haven&apos;t purchased any course yet.
           </h2>
           <p className="text-gray-500 dark:text-gray-400 mb-6">
             Start exploring and purchasing your favorite courses!

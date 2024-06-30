@@ -12,8 +12,8 @@ export function AccordionComponent() {
         <AccordionItem value="item-1">
           <AccordionTrigger>How do I purchase a course?</AccordionTrigger>
           <AccordionContent>
-            You can browse our course catalog, select the course you're
-            interested in, and click the "Buy Now" button. Follow the prompts to
+            You can browse our course catalog, select the course you&apos;re
+            interested in, and click the &quot;Buy Now&quot; button. Follow the prompts to
             complete the payment process, and the course will be added to your
             account.
           </AccordionContent>

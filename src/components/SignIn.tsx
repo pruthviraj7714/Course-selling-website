@@ -110,7 +110,7 @@ const Signin = () => {
           </form>
         </Form>
         <div className="text-center my-2">
-          Don't have an account?{" "}
+          Don&apos;t have an account?{" "}
           <Link href="/signup" className="underline font-serif">
             Sign up
           </Link>

@@ -91,7 +91,7 @@ export default function Page() {
       </div>
       <div className="px-10 pb-10">
         <h1 className="flex justify-center items-center text-3xl font-semibold mb-6">
-          Courses You're Enrolled In
+          Courses You&apos;re Enrolled In
         </h1>
         <div className="container mx-auto">
           {userInfo.purchasedCourses && userInfo.purchasedCourses.length > 0 ? (
@@ -113,7 +113,7 @@ export default function Page() {
           ) : (
             <div className="text-center">
             <h2 className="text-2xl font-bold mb-4 text-gray-700 dark:text-gray-300">
-              You haven't purchased any course yet.
+            You haven&apos;t purchased any course yet
             </h2>
             <p className="text-gray-500 dark:text-gray-400 mb-6">
               Start exploring and purchasing your favorite courses!
