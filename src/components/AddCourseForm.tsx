@@ -29,7 +29,7 @@ import { CATEGORIES } from "@/constants/Icategories";
 import { useRouter } from "next/navigation";
 import { Textarea } from "@/components/ui/textarea";
 
-export default function () {
+export default function AddCourseForm() {
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
