@@ -67,9 +67,11 @@ export default function () {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center my-4">
-      <div className="p-4 text-4xl text-white my-3">Add Course Here</div>
-      <div className="w-3/4 mx-auto p-6 border-4 rounded-xl shadow-xl border-black dark:border-white">
+    <div className="flex flex-col justify-center items-center my-4 bg-gray-100 dark:bg-gray-900 py-6">
+      <div className="p-4 text-4xl text-black dark:text-white my-3">
+        Add Course Here
+      </div>
+      <div className="w-3/4 mx-auto p-6  rounded-xl shadow-2xl bg-white border-2 border-gray-300 dark:border-gray-700 dark:bg-gray-800 ">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
@@ -80,9 +82,15 @@ export default function () {
               name="title"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Title</FormLabel>
+                  <FormLabel className="text-black dark:text-white">
+                    Title
+                  </FormLabel>
                   <FormControl>
-                    <Input placeholder="Enter name of the Course" {...field} />
+                    <Input
+                      className="text-black dark:text-white"
+                      placeholder="Enter name of the Course"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -93,10 +101,13 @@ export default function () {
               name="price"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Price</FormLabel>
+                  <FormLabel className="text-black dark:text-white">
+                    Price
+                  </FormLabel>
                   <FormControl>
                     <Input
                       type="number"
+                      className="text-black dark:text-white"
                       placeholder="Enter Price of the course"
                       {...field}
                       onChange={(e) => field.onChange(e.target.valueAsNumber)}
@@ -111,7 +122,9 @@ export default function () {
               name="category"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Category</FormLabel>
+                  <FormLabel className="text-black dark:text-white">
+                    Category
+                  </FormLabel>
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
@@ -138,9 +151,12 @@ export default function () {
               name="instructor"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Instructor</FormLabel>
+                  <FormLabel className="text-black dark:text-white">
+                    Instructor
+                  </FormLabel>
                   <FormControl>
                     <Input
+                      className="text-black dark:text-white"
                       placeholder="Enter name of the instructor of the course"
                       {...field}
                     />
@@ -154,9 +170,12 @@ export default function () {
               name="thumbnail"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Thumbnail</FormLabel>
+                  <FormLabel className="text-black dark:text-white">
+                    Thumbnail
+                  </FormLabel>
                   <FormControl>
                     <Input
+                      className="text-black dark:text-white"
                       placeholder="Enter the url for the thumbnail of the course"
                       {...field}
                     />
@@ -170,9 +189,12 @@ export default function () {
               name="duration"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Duration</FormLabel>
+                  <FormLabel className="text-black dark:text-white">
+                    Duration
+                  </FormLabel>
                   <FormControl>
                     <Input
+                      className="text-black dark:text-white"
                       placeholder="Enter total duration of the course in hr"
                       {...field}
                     />
@@ -186,9 +208,12 @@ export default function () {
               name="description"
               render={({ field }) => (
                 <FormItem className="lg:col-span-2">
-                  <FormLabel>Description</FormLabel>
+                  <FormLabel className="text-black dark:text-white">
+                    Description
+                  </FormLabel>
                   <FormControl>
                     <Textarea
+                      className="text-black dark:text-white"
                       placeholder="Enter description of the course"
                       {...field}
                     />
@@ -197,16 +222,21 @@ export default function () {
                 </FormItem>
               )}
             />
-            <div className="lg:col-span-2">
+            <div className="flex justify-center items-center lg:col-span-2">
               <Button
                 type="submit"
-                className={`${
+                className={`bg-blue-500 hover:bg-blue-400 dark:bg-blue-700 dark:hover:bg-blue-600 text-white py-2 px-6 rounded ${
                   isLoading ? "opacity-25" : ""
                 }`}
               >
                 {isLoading ? (
                   <>
-                    <Image src="/spinner.svg" alt="/" width={24} height={24} />
+                    <Image
+                      src="/spinner.svg"
+                      alt="Loading..."
+                      width={24}
+                      height={24}
+                    />
                     <span className="ml-1">Loading...</span>
                   </>
                 ) : (

@@ -81,77 +81,83 @@ export default function EditProfile() {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen bg-slate-900">
-      <div className="p-4 text-4xl text-white">Edit your profile here</div>
-      <div className="w-1/3 mx-auto p-6 border-2 bg-slate-900 text-white border-white shadow-xl">
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-            <FormField
-              control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Name</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="Enter the name/ Changed name"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="bio"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Bio</FormLabel>
-                  <FormControl>
-                    <Textarea
-                      placeholder="Enter the bio for your profile"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Email</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="Enter the email/Changed Email"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <Button
-              type="submit"
-              className={`w-full bg-slate-600 hover:bg-slate-500  ${
-                isLoading ? "opacity-25" : ""
-              }`}
-            >
-              {isLoading ? (
-                <>
-                  <Image src="/spinner.svg" alt="/" width={24} height={24} />
-                  <span className="ml-1">Loading...</span>
-                </>
-              ) : (
-                "Submit"
-              )}
-            </Button>
-          </form>
-        </Form>
-      </div>
+    <div className="flex flex-col justify-center items-center h-screen bg-primary-foreground dark:bg-primary-background">
+    <div className="p-4 text-4xl text-black dark:text-white">
+      Edit your profile here
     </div>
+    <div className="w-1/3 rounded-xl mx-auto p-6 border-2 bg-white dark:bg-gray-800 dark:text-white text-black border-gray-300 dark:border-gray-700 shadow-xl">
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <FormField
+            control={form.control}
+            name="name"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-black dark:text-white">Name</FormLabel>
+                <FormControl>
+                  <Input
+                    className="text-black dark:text-white"
+                    placeholder="Enter the name/Changed name"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="bio"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-black dark:text-white">Bio</FormLabel>
+                <FormControl>
+                  <Textarea
+                    className="text-black dark:text-white"
+                    placeholder="Enter the bio for your profile"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-black dark:text-white">Email</FormLabel>
+                <FormControl>
+                  <Input
+                    className="text-black dark:text-white"
+                    placeholder="Enter the email/Changed email"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <Button
+            type="submit"
+            className={`${
+              isLoading ? "opacity-25" : ""
+            } w-full bg-blue-500 hover:bg-blue-400 dark:bg-blue-700 dark:hover:bg-blue-600 text-white py-2 px-4 rounded`}
+          >
+            {isLoading ? (
+              <>
+                <Image src="/spinner.svg" alt="Loading..." width={24} height={24} />
+                <span className="ml-1">Loading...</span>
+              </>
+            ) : (
+              "Submit"
+            )}
+          </Button>
+        </form>
+      </Form>
+    </div>
+  </div>
+  
   );
 }

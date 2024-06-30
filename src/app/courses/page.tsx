@@ -17,7 +17,7 @@ interface CourseType {
   studentsEnrolledCount: number;
   duration: string;
   rating: number;
-  category : string;
+  category: string;
   _id: string;
 }
 
@@ -37,29 +37,32 @@ export default function Courses() {
     <div className="flex flex-col bg-primary-foreground">
       <BackgroundBoxesDemo />
       <div className="p-6 border-t-2 border-black">
-        <h1 className="my-4 font-bold text-2xl">
-          Courses to get you started
-        </h1>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mx-auto p-10">
-        {courses && courses.length > 0 ? (
-          courses.map((course) => (
-            <CourseCard
-              title={course.title}
-              thumbnail={course.thumbnail}
-              price={course.price}
-              studentsEnrolledCount={course.studentsEnrolledCount}
-              duration={course.duration}
-              rating={course.rating}
-              category={course.category}
-              id={course._id}
-            />
-          ))
-        ) : (
-          <div className="font-bold text-5xl flex items-center justify-center">
-            No Courses found
-          </div>
-        )}
-      </div>
+        <h1 className="my-4 font-bold text-2xl">Courses to get you started</h1>
+        <div className="container mx-auto p-10">
+          {courses && courses.length > 0 ? (
+            <div className="grid grid-cols-4 gap-4">
+              {courses.map((course: any) => (
+                <CourseCard
+                  key={course._id}
+                  title={course.title}
+                  thumbnail={course.thumbnail}
+                  price={course.price}
+                  studentsEnrolledCount={course.studentsEnrolledCount}
+                  duration={course.duration}
+                  rating={course.rating}
+                  category={course.category}
+                  id={course._id}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center">
+              <h2 className="text-2xl font-bold mb-4 text-gray-700 dark:text-gray-300">
+                No Courses Added Here Yet
+              </h2>
+            </div>
+          )}
+        </div>
       </div>
       <div className="p-6">
         <h1 className="my-4 text-white font-bold text-2xl">Featured Courses</h1>
@@ -71,7 +74,11 @@ export default function Courses() {
         <h1 className="my-4 text-white font-bold text-2xl">Categories</h1>
         <div className="grid grid-cols-2 p-7 gap-10 my-4">
           {CATEGORIES.map((category) => (
-            <CategoryCard category={category.name} Clink={category.name} CIcon={category.icon} />
+            <CategoryCard
+              category={category.name}
+              Clink={category.name}
+              CIcon={category.icon}
+            />
           ))}
         </div>
       </div>
