@@ -26,9 +26,13 @@ export default function Courses() {
 
   useEffect(() => {
     const getAllCourses = async () => {
-      const coursesArr = await axios.get("/api/all-courses");
-      console.log(coursesArr);
-      setCourses(coursesArr.data.courses);
+      try {
+        const coursesArr = await axios.get("/api/all-courses");
+        console.log(coursesArr);
+        setCourses(coursesArr.data.courses);
+      } catch (error: any) {
+        console.error(error.response.data.message);
+      }
     };
     getAllCourses();
   }, []);
@@ -65,13 +69,13 @@ export default function Courses() {
         </div>
       </div>
       <div className="p-6">
-        <h1 className="my-4 text-white font-bold text-2xl">Featured Courses</h1>
+        <h1 className="my-4 font-bold text-2xl">Featured Courses</h1>
         <div className="flex justify-center items-center">
           <CarouselPlugin />
         </div>
       </div>
       <div className="p-4">
-        <h1 className="my-4 text-white font-bold text-2xl">Categories</h1>
+        <h1 className="my-4  font-bold text-2xl">Categories</h1>
         <div className="grid grid-cols-2 p-7 gap-10 my-4">
           {CATEGORIES.map((category) => (
             <CategoryCard

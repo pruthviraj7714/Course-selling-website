@@ -58,7 +58,7 @@ export default function () {
       console.log(error);
       toast({
         title: "Something went wrong",
-        description: error.message,
+        description: error.response.data.message,
         variant: "destructive",
       });
     } finally {

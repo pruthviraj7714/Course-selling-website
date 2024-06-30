@@ -50,8 +50,8 @@ const Signin = () => {
       });
     } catch (error: any) {
       toast({
-        title: "Sign In Failed",
-        description: error.message || "An unexpected error occurred",
+        title: "signin Failed",
+        description: error.response.data.message,
         variant: "destructive",
       });
     }finally {

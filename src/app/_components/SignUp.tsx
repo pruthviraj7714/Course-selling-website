@@ -74,7 +74,7 @@ const SignUp = () => {
       toast({
         variant: "destructive",
         title: "Uh oh! Something went wrong.",
-        description: `${error.message}`,
+        description: `${error.response.data.message}`,
       });
     } finally {
       setIsLoading(false);

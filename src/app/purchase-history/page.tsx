@@ -11,10 +11,9 @@ export default function () {
   const getPurchasedHistory = async () => {
     try {
       const res = await axios.get("/api/get-purchase-history");
-      console.log(res.data);
       setPHistory(res.data.purchaseHistory);
     } catch (error: any) {
-      console.log(error.message);
+      console.error(error.message);
     }
   };
 
