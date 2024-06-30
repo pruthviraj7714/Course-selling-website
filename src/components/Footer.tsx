@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Globe2Icon } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -28,7 +30,9 @@ export default function Footer() {
         </div>
       </div>
       <div className="flex justify-between my-4">
-        <div>Logo</div>
+      <Link href="/" className=" bg-white  p-2 rounded-lg flex items-center font-bold text-xl">
+        <Image  src='/logo.svg' alt="Logo" width={30} height={30} /> <span className="font-mono px-1 dark:text-black"> CourseForge</span>
+      </Link>
         <div>
           <p className="text-sm">© 2024 Edx, Inc.</p>
         </div>

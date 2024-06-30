@@ -5,14 +5,15 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { ModeToggle } from "./ThemeSwitchButton";
 import { AppMenu } from "./DropDownMenu";
+import Image from "next/image";
 
 export default function Appbar() {
   const session = useSession();
 
   return (
     <div className="bg-gradient-to-l from-slate-900 to-slate-950 dark:bg-white flex justify-between items-center p-4 border-b border-white">
-      <Link href="/" className="text-white font-bold text-xl">
-        Logo
+      <Link href="/" className=" bg-white  p-2 rounded-lg flex items-center font-bold text-xl">
+        <Image  src='/logo.svg' alt="Logo" width={30} height={30} /> <span className="font-mono px-1 dark:text-black"> CourseForge</span>
       </Link>
       <div className="flex items-center space-x-4">
         <Link
