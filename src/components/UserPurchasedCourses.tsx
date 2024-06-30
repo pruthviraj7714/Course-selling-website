@@ -2,15 +2,15 @@
 
 import axios from "axios";
 import { useEffect, useState } from "react";
-import CourseCard from "../_components/CourseCard";
 import Link from "next/link";
+import CourseCard from "./CourseCard";
 
-export function WishlistCourses() {
+export default function UserPurchasedCourses() {
   const [courses, setCourses] = useState<any[]>([]);
 
-  const getWishListCourses = async () => {
+  const getPurchasedCourses = async () => {
     try {
-      const res = await axios.get("/api/get-wishlists");
+      const res = await axios.get("/api/get-purchased-courses");
       setCourses(res.data.courses);
     } catch (error: any) {
       console.error(error.response.data.message);
@@ -18,7 +18,7 @@ export function WishlistCourses() {
   };
 
   useEffect(() => {
-    getWishListCourses();
+    getPurchasedCourses();
   }, []);
 
   return (
@@ -42,10 +42,10 @@ export function WishlistCourses() {
       ) : (
         <div className="text-center">
           <h2 className="text-2xl font-bold mb-4 text-gray-700 dark:text-gray-300">
-            You haven't added any course to your wishlist yet.
+            You haven't purchased any course yet.
           </h2>
           <p className="text-gray-500 dark:text-gray-400 mb-6">
-            Start adding your favorite courses to your wishlist!
+            Start exploring and purchasing your favorite courses!
           </p>
           <Link
             href={"/courses"}

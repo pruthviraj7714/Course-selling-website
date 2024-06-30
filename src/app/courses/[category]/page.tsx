@@ -1,5 +1,5 @@
 "use client";
-import CourseCard from "@/app/_components/CourseCard";
+import CourseCard from "@/components/CourseCard";
 import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";

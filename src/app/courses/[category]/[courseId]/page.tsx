@@ -1,4 +1,4 @@
-import CoursePage from "@/app/_components/CoursePage";
+import CoursePage from "@/components/CoursePage";
 
 export default function ({ params }: { params: any }) {
   

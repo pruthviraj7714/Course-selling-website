@@ -1,11 +1,11 @@
 "use client";
 
 import axios from "axios";
-import { CarouselPlugin } from "../_components/Carousel";
 import { useEffect, useState } from "react";
-import CourseCard from "../_components/CourseCard";
-import CategoryCard from "../_components/CategoryCard";
 import { CATEGORIES } from "@/constants/Icategories";
+import { CarouselPlugin } from "./Carousel";
+import CategoryCard from "./CategoryCard";
+import CourseCard from "./CourseCard";
 
 interface CourseType {
   title: string;

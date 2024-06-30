@@ -1,5 +1,5 @@
-import { BackgroundBoxes } from "../_components/Background-boxdemo";
-import CourseHomePage from "../_components/CourseHomePage";
+import { BackgroundBoxes } from "../../components/Background-boxdemo";
+import CourseHomePage from "../../components/CourseHomePage";
 
 export default function Courses() {
   return (

@@ -1,4 +1,4 @@
-import UserPurchasedCourses from "../_components/UserPurchasedCourses";
+import UserPurchasedCourses from "../../components/UserPurchasedCourses";
 
 export default function () {
   return (

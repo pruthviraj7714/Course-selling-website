@@ -1,4 +1,4 @@
-import SignIn from "@/app/_components/SignIn";
+import SignIn from "@/components/SignIn";
 import authOptions from "@/lib/auth";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";

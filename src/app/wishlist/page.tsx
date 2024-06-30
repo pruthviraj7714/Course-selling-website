@@ -1,4 +1,4 @@
-import { WishlistCourses } from "../_components/WishlistCourses";
+import { WishlistCourses } from "../../components/WishlistCourses";
 
 const WishlistPage = async () => {
   return (

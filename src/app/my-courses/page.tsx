@@ -2,7 +2,7 @@
 
 import axios from "axios";
 import { useEffect, useState } from "react";
-import CourseCard from "../_components/CourseCard";
+import CourseCard from "../../components/CourseCard";
 import Link from "next/link";
 
 export default function () {

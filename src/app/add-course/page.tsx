@@ -1,4 +1,4 @@
-import AddCourseForm from "@/app/_components/AddCourseForm";
+import AddCourseForm from "@/components/AddCourseForm";
 
 export default function AddCourse() {
   return (

@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import {
   Cloud,
@@ -56,7 +56,6 @@ import { toast } from "@/components/ui/use-toast";
 
 export function AppMenu() {
   const router = useRouter();
-  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
     <DropdownMenu>

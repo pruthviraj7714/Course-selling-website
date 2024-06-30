@@ -18,7 +18,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { StarRating } from "@/app/_components/StarRating";
+import { StarRating } from "@/components/StarRating";
 
 export default function CoursePage({ courseId }: { courseId: string }) {
   const [courseData, setCourseData] = useState<any>({});
@@ -94,7 +94,6 @@ export default function CoursePage({ courseId }: { courseId: string }) {
       if (courseId) {
         try {
           const data = await getCourseInfo({ courseId });
-          console.log(data);
           setCourseData(data);
         } catch (error : any) {
           toast({

@@ -3,15 +3,11 @@
 import axios from "axios";
 import {
   BookAIcon,
-  Lamp,
-  SparkleIcon,
-  StarOffIcon,
-  StarsIcon,
 } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { SiGoldenline } from "react-icons/si";
-import CourseCard from "../_components/CourseCard";
+
+import CourseCard from "../../components/CourseCard";
 import { Button } from "@/components/ui/button";
 
 export default function () {

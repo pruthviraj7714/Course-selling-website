@@ -4,7 +4,7 @@ import axios from "axios";
 import { ShoppingCartIcon } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import UserPurchaseHistory from "../_components/UserPurchaseHistory";
+import UserPurchaseHistory from "../../components/UserPurchaseHistory";
 
 export default function () {
   const [pHistory, setPHistory] = useState<any[]>([]);

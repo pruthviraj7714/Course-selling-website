@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Footer from "./_components/Footer";
-import Appbar from "./_components/Appbar";
-import Providers from "./_components/Providers";
+import Footer from "../components/Footer";
+import Appbar from "../components/Appbar";
+import Providers from "../components/Providers";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/theme-provider";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "CourseForge - Empower Your Learning Journey",
-  description: " Start your learning journey today with CourseForge and unlock the potential of knowledge at your fingertips.",
+  description:
+    " Start your learning journey today with CourseForge and unlock the potential of knowledge at your fingertips.",
 };
 
 export default function RootLayout({
