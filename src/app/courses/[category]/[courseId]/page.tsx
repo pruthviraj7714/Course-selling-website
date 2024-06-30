@@ -1,6 +1,6 @@
 import CoursePage from "@/components/CoursePage";
 
-export default function ({ params }: { params: any }) {
+export default function Page ({ params }: { params: any }) {
   
 
   return (

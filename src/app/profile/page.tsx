@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import CourseCard from "../../components/CourseCard";
 import { Button } from "@/components/ui/button";
 
-export default function () {
+export default function Page() {
   const [userInfo, setUserInfo] = useState<any>({});
 
   const getUserInfo = async () => {

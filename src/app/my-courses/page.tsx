@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import CourseCard from "../../components/CourseCard";
 import Link from "next/link";
 
-export default function () {
+export default function Page() {
   const [courses, setCourses] = useState<any[]>([]);
 
 

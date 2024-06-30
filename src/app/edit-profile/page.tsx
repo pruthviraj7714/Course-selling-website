@@ -1,6 +1,6 @@
 import EditProfile from "../../components/EditProfile";
 
-export default function() {
+export default function Page() {
     return (
         <div className="h-screen">
             <EditProfile />
