@@ -47,19 +47,19 @@ export default function Page() {
             </div>
           ) : (
             <div className="text-center">
-            <h2 className="text-2xl font-bold mb-4 text-gray-700 dark:text-gray-300">
-            <p>You haven&apos;t purchased any course yet.</p>
-            </h2>
-            <p className="text-gray-500 dark:text-gray-400 mb-6">
-              Start exploring and purchasing your favorite courses!
-            </p>
-            <Link
-              href={"/courses"}
-              className="px-4 py-2 font-semibold bg-blue-500 text-white rounded-lg shadow-lg hover:bg-blue-600 dark:bg-blue-700 dark:hover:bg-blue-800"
-            >
-              Explore Courses
-            </Link>
-          </div>
+  <h2 className="text-2xl font-bold mb-4 text-gray-700 dark:text-gray-300">
+    You haven&apos;t added any course yet.
+  </h2>
+  <p className="text-gray-500 dark:text-gray-400 mb-6">
+    Go to &quot;Add Course&quot; to add your own course.
+  </p>
+  <Link
+    href="/add-course"
+    className="px-4 py-2 font-semibold bg-blue-500 text-white rounded-lg shadow-lg hover:bg-blue-600 dark:bg-blue-700 dark:hover:bg-blue-800"
+  >
+    Add your course
+  </Link>
+</div>
           )}
         </div>
     </div>
