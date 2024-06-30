@@ -11,7 +11,7 @@ export default function () {
 
   const getPurchasedCourses = async () => {
     try {
-      const res = await axios.get("/api/get-purchased-courses");
+      const res = await axios.get("/api/creator-courses");
       console.log(res.data);
       setCourses(res.data.courses);
     } catch (error: any) {

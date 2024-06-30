@@ -18,6 +18,7 @@ import {
   User,
   UserPlus,
   Users,
+  VideoIcon,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -77,18 +78,22 @@ export function AppMenu() {
               <span>My Courses</span>
             </DropdownMenuItem>
           </Link>
+          <Link href={"/my-learnings"}>
+            <DropdownMenuItem>
+              <VideoIcon className="mr-2 h-4 w-4" />
+              <span>My Learnings</span>
+            </DropdownMenuItem>
+          </Link>
           <Link href={"/wishlist"}>
             <DropdownMenuItem>
               <HeartIcon className="mr-2 h-4 w-4" />
               <span>My Wishlist</span>
-              <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
             </DropdownMenuItem>
           </Link>
           <Link href={"/purchase-history"}>
             <DropdownMenuItem>
               <FaMoneyBill className="mr-2 h-4 w-4" />
               <span>Purchase history</span>
-              <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
             </DropdownMenuItem>
           </Link>
         </DropdownMenuGroup>
@@ -125,7 +130,7 @@ export function AppMenu() {
           </DropdownMenuSub>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <Link href={'https://github.com/pruthviraj7714'}>
+        <Link href={"https://github.com/pruthviraj7714/course-selling-website"}>
           <DropdownMenuItem>
             <Github className="mr-2 h-4 w-4" />
             <span>GitHub</span>
@@ -136,7 +141,11 @@ export function AppMenu() {
           <span>Support</span>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <AlertDialog onOpenChange={() => { setTimeout(() => (document.body.style.pointerEvents = ""), 100) }}>
+        <AlertDialog
+          onOpenChange={() => {
+            setTimeout(() => (document.body.style.pointerEvents = ""), 100);
+          }}
+        >
           <AlertDialogTrigger asChild>
             <Button variant="destructive" className="my-2 mx-3">
               Logout
@@ -152,10 +161,14 @@ export function AppMenu() {
             </AlertDialogHeader>
             <AlertDialogFooter>
               <AlertDialogCancel>Cancel</AlertDialogCancel>
-              <AlertDialogAction onClick={async() => {
-                await signOut({redirect : false})
-                router.push("/")
-              } }>Logout</AlertDialogAction>
+              <AlertDialogAction
+                onClick={async () => {
+                  await signOut({ redirect: false });
+                  router.push("/");
+                }}
+              >
+                Logout
+              </AlertDialogAction>
             </AlertDialogFooter>
           </AlertDialogContent>
         </AlertDialog>

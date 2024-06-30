@@ -31,7 +31,7 @@ export default function Appbar() {
               <span className="ml-2">Wishlist</span>
             </Link>
             <Link
-              href="/my-courses"
+              href="/my-learnings"
               className="bg-white dark:bg-black dark:text-white font-semibold hover:bg-zinc-300 border border-black px-4 py-2 rounded-md"
             >
               My Learnings

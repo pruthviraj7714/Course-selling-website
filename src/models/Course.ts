@@ -10,7 +10,7 @@ export interface ICourse extends Document {
   studentsEnrolledCount: number;
   thumbnail?: string;
   rating?: number;
-  wishlistedUsers: mongoose.Types.ObjectId[]; 
+  creator: mongoose.Types.ObjectId;
   purchasedUsers: mongoose.Types.ObjectId[]; 
   createdAt: Date;
   updatedAt: Date;
@@ -50,10 +50,10 @@ const CourseSchema: Schema = new Schema({
     type: Number,
     default: 0,
   },
-  wishlistedUsers: [{
-    type: Schema.Types.ObjectId,
-    ref: 'User', 
-  }],
+  creator : {
+    type : Schema.Types.ObjectId,
+    ref : "User",
+  },
   purchasedUsers: [{
     type: Schema.Types.ObjectId,
     ref: 'User', 

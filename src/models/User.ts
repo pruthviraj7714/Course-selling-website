@@ -8,9 +8,9 @@ export interface IUser extends Document {
   gender: "male" | "female";
   profileAvatar: string;
   role: "student" | "admin";
-  wishlist: mongoose.Schema.Types.ObjectId[]; // Array of Course IDs
+  wishlist: mongoose.Schema.Types.ObjectId[];
   learningPoints: number;
-  purchasedCourses: mongoose.Schema.Types.ObjectId[]; // Array of Course IDs
+  purchasedCourses: mongoose.Schema.Types.ObjectId[];
   purchaseHistory: mongoose.Schema.Types.ObjectId[];
 }
 
@@ -45,7 +45,7 @@ const UserSchema: Schema = new Schema(
     wishlist: [
       {
         type: Schema.Types.ObjectId,
-        ref: "Course", // Reference to the Course model
+        ref: "Course",
       },
     ],
     learningPoints: {
@@ -55,7 +55,7 @@ const UserSchema: Schema = new Schema(
     purchasedCourses: [
       {
         type: Schema.Types.ObjectId,
-        ref: "Course", // Reference to the Course model
+        ref: "Course",
       },
     ],
     purchaseHistory: [

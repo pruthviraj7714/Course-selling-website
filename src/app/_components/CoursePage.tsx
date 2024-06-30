@@ -94,6 +94,7 @@ export default function CoursePage({ courseId }: { courseId: string }) {
       if (courseId) {
         try {
           const data = await getCourseInfo({ courseId });
+          console.log(data);
           setCourseData(data);
         } catch (error : any) {
           toast({
@@ -116,7 +117,6 @@ export default function CoursePage({ courseId }: { courseId: string }) {
         setIsInWishlist(res.data.isInWishlist);
       } catch (error: any) {
         console.log(error.response.data.message);
-        toast(error.response.data.message);
       }
     };
 
@@ -133,9 +133,17 @@ export default function CoursePage({ courseId }: { courseId: string }) {
       }
     };
 
-    getWslinfo();
     getInfo();
-    getPurchaseInfo();
+
+    const func = async () => {
+      if(session?.data?.user) {
+          await getWslinfo()
+          await getPurchaseInfo();
+      }
+    } 
+
+    func();
+
   }, [courseId, isInWishlist, isPurchased, isRatingSubmitted]);
 
   const handleRating = (value: any) => {

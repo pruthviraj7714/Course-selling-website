@@ -25,7 +25,6 @@ export function CarouselPlugin() {
     const getAllCourses = async () => {
       try {
         const coursesArr = await axios.get("/api/all-courses");
-        console.log(coursesArr);
         setCourses(coursesArr.data.courses);
       } catch (error: any) {
         console.error(error.response.data.message);

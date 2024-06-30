@@ -4,8 +4,6 @@ export const StarRating = ({ rating } : {rating : number}) => {
     const fullStars = rating; 
     const hasHalfStar = 5 - rating !== 0;
 
-    console.log(rating);
-
   return (
     <div className="star-rating flex justify-center lg:justify-start">
       {[...Array(fullStars)].map((_, index) => (
