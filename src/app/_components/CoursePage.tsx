@@ -233,7 +233,7 @@ export default function CoursePage({ courseId }: { courseId: string }) {
               ) : (
                 <Button
                   onClick={addCoursetoWishList}
-                  className="w-full lg:w-auto"
+                  className="w-full lg:w-auto bg-slate-800  dark:text-white hover:bg-slate-700 "
                 >
                   Add to Wishlist
                 </Button>
@@ -295,7 +295,7 @@ export default function CoursePage({ courseId }: { courseId: string }) {
               ) : (
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button className="w-full lg:w-auto flex gap-2 items-center">
+                    <Button className="w-full lg:w-auto bg-slate-800  dark:text-white hover:bg-slate-700  flex gap-2 items-center">
                       <ShoppingCartIcon />
                       Buy Course
                     </Button>
@@ -350,7 +350,7 @@ export default function CoursePage({ courseId }: { courseId: string }) {
           ) : (
             <div className="flex justify-center items-center w-full">
               <Link href="/signin">
-                <Button className="w-full lg:w-auto">Login to Continue</Button>
+                <Button className="w-full lg:w-auto bg-slate-800  dark:text-white hover:bg-slate-700 ">Login to Continue</Button>
               </Link>
             </div>
           )}

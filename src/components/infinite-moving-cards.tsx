@@ -77,6 +77,9 @@ export const InfiniteMovingCards = ({
         className
       )}
     >
+      <div className="flex justify-center items-center py-5  text-3xl">
+        Learner Experiences 👨‍🎓
+      </div>
       <ul
         ref={scrollerRef}
         className={cn(

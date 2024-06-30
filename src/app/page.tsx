@@ -1,19 +1,17 @@
-"use client"
+"use client";
 
 import { HoverEffect } from "@/components/Card-hover-effect";
-import { LampDemo } from "@/components/ui/lamp";
-import { CarouselPlugin } from "./_components/Carousel";
-import { BackgroundGradientDemo } from "./_components/Gradient-Card";
-import { AccordionDemo } from "./_components/AccordionDemo";
 import { skills } from "@/constants/Iskills";
 import { InfiniteMovingCards } from "@/components/infinite-moving-cards";
-import { Testimonials } from "@/constants/Testimonials";;
+import { Testimonials } from "@/constants/Testimonials";
+import { AccordionComponent } from "./_components/AccordionDemo";
+import { LampComponent } from "@/components/ui/lamp";
 
 export default function Home() {
   return (
     <>
       <div>
-        <LampDemo />
+        <LampComponent />
         <div className="flex justify-center flex-col items-center bg-black p-4">
           <h1 className="my-2 font-serif text-white text-4xl">
             The Skills You Should Learn
@@ -27,7 +25,9 @@ export default function Home() {
             speed="slow"
           />
         </div>
-        <AccordionDemo />
+        <div className="bg-primary-foreground">
+          <AccordionComponent />
+        </div>
       </div>
     </>
   );

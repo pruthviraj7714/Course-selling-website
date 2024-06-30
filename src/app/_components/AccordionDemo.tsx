@@ -5,9 +5,9 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-export function AccordionDemo() {
+export function AccordionComponent() {
   return (
-    <div className="flex mx-auto w-1/2 my-10">
+    <div className="flex mx-auto w-1/2 py-10">
       <Accordion type="single" collapsible className="w-full">
         <AccordionItem value="item-1">
           <AccordionTrigger>How do I purchase a course?</AccordionTrigger>

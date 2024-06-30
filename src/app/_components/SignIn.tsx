@@ -54,18 +54,18 @@ const Signin = () => {
         description: error.response.data.message,
         variant: "destructive",
       });
-    }finally {
+    } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <div className="flex justify-center items-center h-screen">
-      <div className='flex flex-col w-[30%] p-4 shadow-2xl border'>
-        <div className='text-center flex flex-col my-4'>
-          <h1 className="font-bold text-3xl">Sign In</h1>
-          <p className="font-semibold">Sign In with your Credentials</p>
-        </div>
+     <div className="flex flex-col justify-center items-center h-screen bg-primary-foreground dark:bg-primary-background">
+      <div className="flex flex-col p-4  text-center text-black dark:text-white">
+        <h1 className="font-bold text-3xl">Sign In</h1>
+        <p className="font-semibold">Sign In with your Credentials</p>
+      </div>
+      <div className="w-1/3 rounded-xl mx-auto p-6 border-2 bg-white dark:bg-gray-800 dark:text-white text-black border-gray-300 dark:border-gray-700 shadow-xl">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <FormField
@@ -94,10 +94,13 @@ const Signin = () => {
                 </FormItem>
               )}
             />
-           <Button type="submit" className={`w-full ${isLoading ? "opacity-25"  : ""}`}>
+            <Button
+              type="submit"
+              className={`w-full ${isLoading ? "opacity-25" : ""}`}
+            >
               {isLoading ? (
                 <>
-                  <Image src='/spinner.svg' alt="/" width={24} height={24} />
+                  <Image src="/spinner.svg" alt="/" width={24} height={24} />
                   <span className="ml-1">Loading...</span>
                 </>
               ) : (
@@ -107,7 +110,10 @@ const Signin = () => {
           </form>
         </Form>
         <div className="text-center my-2">
-              Don't have an account? <Link href='/signup' className="underline font-serif">Sign up</Link>
+          Don't have an account?{" "}
+          <Link href="/signup" className="underline font-serif">
+            Sign up
+          </Link>
         </div>
       </div>
     </div>

@@ -52,6 +52,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { toast } from "@/components/ui/use-toast";
 
 export function AppMenu() {
   const router = useRouter();
@@ -105,29 +106,15 @@ export function AppMenu() {
               <span>Edit Profle</span>
             </DropdownMenuItem>
           </Link>
-          <DropdownMenuSub>
-            <DropdownMenuSubTrigger>
-              <UserPlus className="mr-2 h-4 w-4" />
-              <span>Invite users</span>
-            </DropdownMenuSubTrigger>
-            <DropdownMenuPortal>
-              <DropdownMenuSubContent>
-                <DropdownMenuItem>
-                  <Mail className="mr-2 h-4 w-4" />
-                  <span>Email</span>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <MessageSquare className="mr-2 h-4 w-4" />
-                  <span>Message</span>
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem>
-                  <PlusCircle className="mr-2 h-4 w-4" />
-                  <span>More...</span>
-                </DropdownMenuItem>
-              </DropdownMenuSubContent>
-            </DropdownMenuPortal>
-          </DropdownMenuSub>
+          <DropdownMenuItem onClick={() => {
+            navigator.clipboard.writeText("http://localhost:3000")
+            toast({
+              description: "Link copied successfully! Share it with your friends.",
+            });
+          }}>
+            <UserPlus className="mr-2 h-4 w-4" />
+            <span>Invite users</span>
+          </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <Link href={"https://github.com/pruthviraj7714/course-selling-website"}>
@@ -136,10 +123,7 @@ export function AppMenu() {
             <span>GitHub</span>
           </DropdownMenuItem>
         </Link>
-        <DropdownMenuItem>
-          <LifeBuoy className="mr-2 h-4 w-4" />
-          <span>Support</span>
-        </DropdownMenuItem>
+       
         <DropdownMenuSeparator />
         <AlertDialog
           onOpenChange={() => {

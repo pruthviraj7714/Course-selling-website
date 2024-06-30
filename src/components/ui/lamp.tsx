@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-export function LampDemo() {
+export function LampComponent() {
   return (
     <LampContainer>
       <motion.h1
