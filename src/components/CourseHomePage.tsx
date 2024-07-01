@@ -6,6 +6,7 @@ import { CATEGORIES } from "@/constants/Icategories";
 import { CarouselPlugin } from "./Carousel";
 import CategoryCard from "./CategoryCard";
 import CourseCard from "./CourseCard";
+import { SkeletonCard } from "./SkeletonCard";
 
 interface CourseType {
   title: string;
@@ -21,6 +22,7 @@ interface CourseType {
 
 export default function CourseHomePage() {
   const [courses, setCourses] = useState<CourseType[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const getAllCourses = async () => {
@@ -29,10 +31,23 @@ export default function CourseHomePage() {
         setCourses(coursesArr.data.courses);
       } catch (error: any) {
         console.error(error.response.data.message);
+      } finally {
+        setIsLoading(false);
       }
     };
     getAllCourses();
   }, []);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen grid grid-cols-4 gap-4">
+        {Array.from({ length: 8 }).map((_, index) => (
+          <SkeletonCard key={index} />
+        ))}
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col">
       <div className="p-6 border-t-2 border-black">

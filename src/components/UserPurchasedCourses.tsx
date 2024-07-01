@@ -4,9 +4,11 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import CourseCard from "./CourseCard";
+import { SkeletonCard } from "./SkeletonCard";
 
 export default function UserPurchasedCourses() {
   const [courses, setCourses] = useState<any[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const getPurchasedCourses = async () => {
     try {
@@ -14,12 +16,25 @@ export default function UserPurchasedCourses() {
       setCourses(res.data.courses);
     } catch (error: any) {
       console.error(error.response.data.message);
+    }finally {
+      setIsLoading(false);
     }
   };
 
   useEffect(() => {
     getPurchasedCourses();
   }, []);
+
+  if(isLoading) {
+    return (
+      <div className="grid grid-cols-4 gap-4">
+        <SkeletonCard />
+        <SkeletonCard />
+        <SkeletonCard />
+        <SkeletonCard />
+      </div>
+    )
+  }
 
   return (
     <div className="container mx-auto p-10">

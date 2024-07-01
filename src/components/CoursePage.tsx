@@ -19,6 +19,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { StarRating } from "@/components/StarRating";
+import CourseSkeleton from "./CourseSkeleton";
 
 export default function CoursePage({ courseId }: { courseId: string }) {
   const [courseData, setCourseData] = useState<any>({});
@@ -26,6 +27,7 @@ export default function CoursePage({ courseId }: { courseId: string }) {
   const [isPurchased, setIsPurchased] = useState(false);
   const [isRatingSubmitted, setIsRatingSubmitted] = useState(false);
   const [rating, setRating] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
   const { toast } = useToast();
 
   const session = useSession();
@@ -95,11 +97,13 @@ export default function CoursePage({ courseId }: { courseId: string }) {
         try {
           const data = await getCourseInfo({ courseId });
           setCourseData(data);
-        } catch (error : any) {
+        } catch (error: any) {
           toast({
             variant: "destructive",
             description: error.response.data.message,
           });
+        } finally {
+          setIsLoading(false);
         }
       } else {
         console.error("Course ID is undefined");
@@ -135,14 +139,13 @@ export default function CoursePage({ courseId }: { courseId: string }) {
     getInfo();
 
     const func = async () => {
-      if(session?.data?.user) {
-          await getWslinfo()
-          await getPurchaseInfo();
+      if (session?.data?.user) {
+        await getWslinfo();
+        await getPurchaseInfo();
       }
-    } 
+    };
 
     func();
-
   }, [courseId, isInWishlist, isPurchased, isRatingSubmitted]);
 
   const handleRating = (value: any) => {
@@ -171,6 +174,10 @@ export default function CoursePage({ courseId }: { courseId: string }) {
       console.error(error.response.data.message);
     }
   };
+
+  if (isLoading) {
+    return <CourseSkeleton />;
+  }
 
   return (
     <div className="flex justify-center items-center p-10">
@@ -349,7 +356,9 @@ export default function CoursePage({ courseId }: { courseId: string }) {
           ) : (
             <div className="flex justify-center items-center w-full">
               <Link href="/signin">
-                <Button className="w-full lg:w-auto bg-slate-800  dark:text-white hover:bg-slate-700 ">Login to Continue</Button>
+                <Button className="w-full lg:w-auto bg-slate-800  dark:text-white hover:bg-slate-700 ">
+                  Login to Continue
+                </Button>
               </Link>
             </div>
           )}

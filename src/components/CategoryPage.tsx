@@ -1,39 +1,39 @@
 "use client";
 
+import CourseCard from "@/components/CourseCard";
+import { SkeletonCard } from "@/components/SkeletonCard";
 import axios from "axios";
-import { useEffect, useState } from "react";
 import Link from "next/link";
-import CourseCard from "./CourseCard";
-import { SkeletonCard } from "./SkeletonCard";
+import { useEffect, useState } from "react";
 
-export function WishlistCourses() {
+export default function CategoryPage({ category }: { category: string }) {
   const [courses, setCourses] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const getWishListCourses = async () => {
-    try {
-      const res = await axios.get("/api/get-wishlists");
-      setCourses(res.data.courses);
-    } catch (error: any) {
-      console.error(error.response.data.message);
-    }finally {
-      setIsLoading(false);
-    }
-  };
-
   useEffect(() => {
-    getWishListCourses();
+    const getAll = async () => {
+      try {
+        const res = await axios.get(`/api/all-courses?category=${category}`);
+        console.log(res.data);
+        setCourses(res.data.courses);
+      } catch (error: any) {
+        console.error(error.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    getAll();
   }, []);
 
-  if(isLoading) {
+  if (isLoading) {
     return (
-      <div className="grid grid-cols-4 gap-4">
+      <div className="min-h-screen grid grid-cols-4 gap-4 bg-primary-foreground">
         <SkeletonCard />
         <SkeletonCard />
         <SkeletonCard />
         <SkeletonCard />
       </div>
-    )
+    );
   }
 
   return (
@@ -57,10 +57,10 @@ export function WishlistCourses() {
       ) : (
         <div className="text-center">
           <h2 className="text-2xl font-bold mb-4 text-gray-700 dark:text-gray-300">
-            You haven&apos;t added any course to your wishlist yet.
+            No Courses Added Here Yet
           </h2>
           <p className="text-gray-500 dark:text-gray-400 mb-6">
-            Start adding your favorite courses to your wishlist!
+            Explore other categories in the meantime!
           </p>
           <Link
             href={"/courses"}
