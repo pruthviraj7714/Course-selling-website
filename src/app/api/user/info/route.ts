@@ -17,7 +17,7 @@ export async function GET(req : NextRequest) {
             }, {status : 403})
         }
 
-        const userInfo = await User.findById(session.user.id).populate(["wishlist", "purchasedCourses"]);
+        const userInfo = await User.findById(session.user.id).populate(["wishlist", "purchasedCourses"]).select("-password");
 
         return NextResponse.json({
             info : userInfo
