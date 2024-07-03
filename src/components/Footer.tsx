@@ -31,7 +31,7 @@ export default function Footer() {
       </div>
       <div className="flex justify-between my-4">
       <Link href="/" className=" bg-white  p-2 rounded-lg flex items-center font-bold text-xl">
-        <Image  src='/logo.svg' alt="Logo" width={30} height={30} /> <span className="font-mono px-1 dark:text-black"> CourseForge</span>
+        <Image  src='/logo.svg' alt="Logo" width={30} height={30} /> <span className="font-mono px-1 text-black dark:text-black"> CourseForge</span>
       </Link>
         <div>
           <p className="text-sm">© 2024 Edx, Inc.</p>
