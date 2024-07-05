@@ -181,13 +181,13 @@ export default function CoursePage({ courseId }: { courseId: string }) {
 
   return (
     <div className="flex justify-center items-center p-10">
-      <div className="border-2 border-black bg-white dark:bg-black rounded-lg shadow-lg max-w-5xl py-10 px-8">
+      <div className="border-2 border-black bg-white dark:bg-black rounded-lg shadow-lg max-w-7xl py-10 px-8">
         <div className="flex flex-col lg:flex-row justify-between items-center gap-10">
           <div className="flex flex-col space-y-6 text-center lg:text-left">
-            <h1 className="text-5xl font-extrabold text-gray-900 dark:text-white my-3">
+            <h1 className="text-5xl max-w-3xl font-extrabold text-gray-900 dark:text-white my-3">
               {courseData.title}
             </h1>
-            <p className="text-lg text-gray-700 dark:text-gray-300">
+            <p className="text-lg max-w-3xl text-gray-700 dark:text-gray-300">
               {courseData.description}
             </p>
             <div className="flex justify-center lg:justify-start">
@@ -219,7 +219,7 @@ export default function CoursePage({ courseId }: { courseId: string }) {
           </div>
           <div className="flex justify-center items-center">
             <img
-              className="border-2 border-white rounded-lg w-[350px] h-[230px] object-cover"
+              className="border-2 border-white rounded-lg w-[450px] h-[230px] object-fill"
               src={courseData.thumbnail}
               alt={courseData.title}
             />
