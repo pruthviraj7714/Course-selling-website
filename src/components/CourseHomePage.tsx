@@ -22,7 +22,7 @@ interface CourseType {
 
 export default function CourseHomePage() {
   const [courses, setCourses] = useState<CourseType[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const getAllCourses = async () => {
@@ -54,8 +54,8 @@ export default function CourseHomePage() {
         <h1 className="my-4 font-bold text-2xl">Courses to get you started</h1>
         <div className="container mx-auto p-10">
           {courses && courses.length > 0 ? (
-            <div className="grid grid-cols-4 gap-4">
-              {courses.map((course: any) => (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {courses.map((course: CourseType) => (
                 <CourseCard
                   key={course._id}
                   title={course.title}

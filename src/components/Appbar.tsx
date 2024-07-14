@@ -12,8 +12,12 @@ export default function Appbar() {
 
   return (
     <div className="bg-gradient-to-l from-slate-900 to-slate-950 dark:bg-white flex justify-between items-center p-4 border-b border-white">
-      <Link href="/" className=" bg-white  p-2 rounded-lg flex items-center font-bold text-xl">
-        <Image  src='/logo.svg' alt="Logo" width={30} height={30} /> <span className="font-mono px-1 dark:text-black"> CourseForge</span>
+      <Link
+        href="/"
+        className=" sm:text-sm md:text-lg bg-white p-2 rounded-lg flex items-center font-bold text-xl"
+      >
+        <Image src="/logo.svg" alt="Logo" width={30} height={30} />{" "}
+        <span className="font-mono px-1 dark:text-black"> CourseForge</span>
       </Link>
       <div className="flex items-center space-x-4">
         <Link
@@ -26,20 +30,20 @@ export default function Appbar() {
           <>
             <Link
               href="/wishlist"
-              className="flex items-center border bg-white  border-black px-4 py-2 rounded-md dark:bg-black dark:text-white"
+              className="hidden md:flex items-center border bg-white  border-black px-4 py-2 rounded-md dark:bg-black dark:text-white"
             >
               <ShoppingCartIcon />
               <span className="ml-2">Wishlist</span>
             </Link>
             <Link
               href="/my-learnings"
-              className="bg-white dark:bg-black dark:text-white font-semibold hover:bg-zinc-300 border border-black px-4 py-2 rounded-md"
+              className="hidden md:block bg-white dark:bg-black dark:text-white font-semibold hover:bg-zinc-300 border border-black px-4 py-2 rounded-md"
             >
               My Learnings
             </Link>
             <Link
               href="/add-course"
-              className="bg-white px-4 py-2 rounded-md dark:bg-black dark:text-white font-semibold"
+              className="hidden md:block bg-white px-4 py-2 rounded-md dark:bg-black dark:text-white font-semibold"
             >
               Add Course
             </Link>
