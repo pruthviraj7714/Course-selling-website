@@ -3,7 +3,6 @@ import axios from "axios";
 export async function getCourseInfo({ courseId }: { courseId: string }) {
   try {
     const res = await axios.get(`/api/course-info?courseId=${courseId}`);
-
     return res.data.course;
   } catch (error: any) {
     console.log("Error fetching course info:", error.response.data.message);

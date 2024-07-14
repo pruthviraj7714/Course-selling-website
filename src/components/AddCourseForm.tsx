@@ -31,7 +31,7 @@ import { Textarea } from "@/components/ui/textarea";
 
 export default function AddCourseForm() {
   const { toast } = useToast();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const router = useRouter();
   const form = useForm<z.infer<typeof CourseSchema>>({
     resolver: zodResolver(CourseSchema),
