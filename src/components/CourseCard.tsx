@@ -22,7 +22,7 @@ const CourseCard = ({
   return (
     <Link
       href={`/courses/${category}/${id}`}
-      className="sm:w-[150px] sm:h-[140px] flex flex-col justify-between border rounded-lg w-[300px] h-[340px] bg-white text-black shadow-xl border-black transform transition-transform hover:scale-105 dark:bg-gray-800"
+      className="flex flex-col justify-between border rounded-lg w-[300px] h-[340px] bg-white text-black shadow-xl border-black transform transition-transform hover:scale-105 dark:bg-gray-800"
     >
       <img
         className="w-full h-[160px] object-cover rounded-t-lg"

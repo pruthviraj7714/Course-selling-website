@@ -55,9 +55,9 @@ export function CarouselPlugin() {
       onMouseLeave={plugin.current.reset}
     >
       <CarouselContent>
-        {courses.slice(0,8).map((course, index) => (
+        {courses.slice(0,4).map((course, index) => (
           <CarouselItem key={index}>
-            <div className="">
+            <div>
               <Card>
                 <Link href={`/courses/${course.category}/${course._id}`}>
                   <CardContent className="flex w-full flex-col items-center justify-center">
