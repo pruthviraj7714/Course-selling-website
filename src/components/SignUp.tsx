@@ -89,11 +89,11 @@ const SignUp = () => {
 
   return (
     <div className="flex flex-col justify-center items-center h-screen bg-primary-foreground dark:bg-primary-background">
-      <div className="flex flex-col p-4  text-center text-black dark:text-white">
+      <div className="flex flex-col p-4 text-center text-black dark:text-white">
         <h1 className="font-bold text-3xl">Sign In</h1>
-        <p className="font-semibold">Sign In with your Credentials</p>
+        <p className="font-semibold">Sign in with your credentials</p>
       </div>
-      <div className="w-1/3 rounded-xl mx-auto p-6 border-2 bg-white dark:bg-gray-800 dark:text-white text-black border-gray-300 dark:border-gray-700 shadow-xl">
+      <div className="w-full md:w-1/3 rounded-xl mx-auto p-6 border-2 bg-white dark:bg-gray-800 dark:text-white text-black border-gray-300 dark:border-gray-700 shadow-xl">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <FormField
