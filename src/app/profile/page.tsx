@@ -1,32 +1,40 @@
 "use client";
 
 import axios from "axios";
-import {
-  BookAIcon,
-} from "lucide-react";
+import { BookAIcon } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
 import CourseCard from "../../components/CourseCard";
 import { Button } from "@/components/ui/button";
-
 export default function Page() {
   const [userInfo, setUserInfo] = useState<any>({});
+  const [isLoading, setIsLoading] = useState<any>(true);
 
   const getUserInfo = async () => {
     try {
       const res = await axios.get("api/user/info");
-      console.log(res.data);
-
       setUserInfo(res.data.info);
     } catch (error: any) {
       console.log(error.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   useEffect(() => {
     getUserInfo();
   }, []);
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-screen bg-white dark:bg-black text-black dark:text-white">
+        <div className="flex flex-col items-center">
+          <div className="animate-spin rounded-full h-24 w-24 border-t-4 border-b-4 border-blue-500 mb-4"></div>
+          <div className="text-5xl">Loading...</div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-primary-foreground duration-300">
@@ -112,19 +120,19 @@ export default function Page() {
             </div>
           ) : (
             <div className="text-center">
-            <h2 className="text-2xl font-bold mb-4 text-gray-700 dark:text-gray-300">
-            You haven&apos;t purchased any course yet
-            </h2>
-            <p className="text-gray-500 dark:text-gray-400 mb-6">
-              Start exploring and purchasing your favorite courses!
-            </p>
-            <Link
-              href={"/courses"}
-              className="px-4 py-2 font-semibold bg-blue-500 text-white rounded-lg shadow-lg hover:bg-blue-600 dark:bg-blue-700 dark:hover:bg-blue-800"
-            >
-              Explore Courses
-            </Link>
-          </div>
+              <h2 className="text-2xl font-bold mb-4 text-gray-700 dark:text-gray-300">
+                You haven&apos;t purchased any course yet
+              </h2>
+              <p className="text-gray-500 dark:text-gray-400 mb-6">
+                Start exploring and purchasing your favorite courses!
+              </p>
+              <Link
+                href={"/courses"}
+                className="px-4 py-2 font-semibold bg-blue-500 text-white rounded-lg shadow-lg hover:bg-blue-600 dark:bg-blue-700 dark:hover:bg-blue-800"
+              >
+                Explore Courses
+              </Link>
+            </div>
           )}
         </div>
       </div>
