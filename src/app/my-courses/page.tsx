@@ -13,7 +13,6 @@ export default function Page() {
   const getPurchasedCourses = async () => {
     try {
       const res = await axios.get("/api/creator-courses");
-      console.log(res.data);
       setCourses(res.data.courses);
     } catch (error: any) {
       console.log(error.message);

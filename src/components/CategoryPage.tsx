@@ -14,7 +14,6 @@ export default function CategoryPage({ category }: { category: string }) {
     const getAll = async () => {
       try {
         const res = await axios.get(`/api/all-courses?category=${category}`);
-        console.log(res.data);
         setCourses(res.data.courses);
       } catch (error: any) {
         console.error(error.message);
