@@ -1,7 +1,7 @@
 "use client";
 
 import { ShoppingCartIcon } from "lucide-react";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import Link from "next/link";
 import { ModeToggle } from "./ThemeSwitchButton";
 import { AppMenu } from "./DropDownMenu";

@@ -5,8 +5,6 @@ import Footer from "../components/Footer";
 import Appbar from "../components/Appbar";
 import Providers from "../components/Providers";
 import { Toaster } from "@/components/ui/toaster";
-import { ThemeProvider } from "@/components/theme-provider";
-import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,21 +21,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Providers>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <body className={inter.className}>
-            <Appbar />
-            {children}
-            <Toaster />
-          </body>
+      <body className={inter.className}>
+        <Providers>
+          <Appbar />
+          {children}
+          <Toaster />
           <Footer />
-        </ThemeProvider>
-      </Providers>
+        </Providers>
+      </body>
     </html>
   );
 }
